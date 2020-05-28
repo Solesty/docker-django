@@ -8,3 +8,22 @@ services:
     - .:/code
   ports:
     - "8000:8000"
+  depends_on:
+    - db
+
+ db:
+#   image: mysql:latest
+  image: mysql:latest
+  command: mysqld --default-authentication-plugin=mysql_native_password
+  
+  volumes:
+#    - "./mysql:/home/adeleke/db_volumes"
+   - "./mysql:/var/lib/mysql"
+  ports:
+   - "3307:3307"
+  restart: always
+  environment:
+   - MYSQL_ROOT_PASSWORD=secret123
+   - MYSQL_DATABASE=django_app
+   - MYSQL_USER=django_app
+   - MYSQL_PASSWORD=django_app123
