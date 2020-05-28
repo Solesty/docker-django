@@ -58,3 +58,4 @@ In nginx
 - Remember that port 8000 has been exposed to be used by the django app
 - Then the nginx server will map port 8000 in the container to port AAAA in the host "AAAA:8000" . Check the nginx server for comments. To acess http://localhost:AAAA
 - Remeber to add app to the list of allowed host in ALLOWED_HOSTS of settings.py, check nginx config file more details
+- Once nginx is serving files, you need to stop and restart the container againfor any changes to take effect.
